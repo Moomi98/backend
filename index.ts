@@ -1,13 +1,28 @@
+import "dotenv/config";
 import express, { Application, Request, Response } from "express";
+import mongoose from "mongoose";
+import cors from "cors";
 
 const app: Application = express();
 
-const port: number = 3001;
+mongoose
+  .connect(process.env.MONGOOSE_URL!)
+  .then(() => console.log("MongoDB conected"))
+  .catch((err) => {
+    console.log(err);
+  });
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello toto");
-});
+// CORS 설정
+// TODO : 배포시 CORS 설정 필요
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  }),
+  express.text(),
+  express.json()
+);
 
-app.listen(port, function () {
-  console.log(`App is listening on port ${port} !`);
+app.listen(process.env.PORT, function () {
+  console.log(`App is listening on port ${process.env.PORT} !`);
 });
