@@ -3,6 +3,8 @@ import express, { Application, Request, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 
+import productListRouter from "./routes/productList";
+
 const app: Application = express();
 
 mongoose
@@ -26,3 +28,5 @@ app.use(
 app.listen(process.env.PORT, function () {
   console.log(`App is listening on port ${process.env.PORT} !`);
 });
+
+app.use("/product-list", productListRouter);
