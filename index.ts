@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import productListRouter from "./routes/productList";
+import adminRouter from "./routes/admin";
 
 const app: Application = express();
 
@@ -30,3 +31,4 @@ app.listen(process.env.PORT, function () {
 });
 
 app.use("/product-list", productListRouter);
+app.use("/admin", adminRouter);
