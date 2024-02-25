@@ -2,8 +2,7 @@ import mongoose, { Schema } from "mongoose";
 
 export type TProduct = {
   thumbnail: string;
-  name: string;
-  modelNo: string;
+  title: string;
   productDetail: string;
   subtitle?: string;
 };
@@ -11,10 +10,9 @@ export type TProduct = {
 const ProductSchema = new Schema<TProduct>(
   {
     thumbnail: { type: String, required: false },
-    name: { type: String, required: true },
-    modelNo: { type: String, required: true },
+    title: { type: String, required: true },
     subtitle: { type: String, required: false, default: "" },
-    productDetail: { type: String, required: true }, // image url
+    productDetail: { type: String, required: true },
   },
   {
     timestamps: true,

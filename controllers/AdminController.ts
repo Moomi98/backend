@@ -16,4 +16,37 @@ export default class AdminController {
       res.status(401).send(e);
     }
   };
+
+  createProductPostId = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const postId = await this.adminService.createProductPostId();
+
+      res.status(200).send(postId);
+    } catch (e) {
+      res.status(401).send(e);
+    }
+  };
+
+  createProductPost = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    try {
+      const { id, title, content } = req.body;
+      const result = await this.adminService.createProductPost(
+        id,
+        title,
+        content
+      );
+
+      res.status(200).send(id);
+    } catch (e) {
+      res.status(500).send(e);
+    }
+  };
 }

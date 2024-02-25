@@ -13,4 +13,12 @@ export default class AdminService {
       return true;
     else throw new Error("ERROR: unauthorized");
   }
+
+  async createProductPostId() {
+    return await this.adminRepository.createProductPostId();
+  }
+
+  async createProductPost(id: string, title: string, content: string) {
+    return await this.adminRepository.createProductPost(id, title, content);
+  }
 }
