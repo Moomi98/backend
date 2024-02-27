@@ -11,6 +11,7 @@ export default class ProductService {
       title: product.title,
       subtitle: product.subtitle ?? "",
       thumbnail: product.thumbnail,
+      createdAt: product.createdAt,
     }));
   }
 }

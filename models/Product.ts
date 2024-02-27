@@ -5,20 +5,17 @@ export type TProduct = {
   title: string;
   productDetail: string;
   subtitle?: string;
+  createdAt?: number;
 };
 
-const ProductSchema = new Schema<TProduct>(
-  {
-    thumbnail: { type: String, required: false },
-    title: { type: String, required: true },
-    subtitle: { type: String, required: false, default: "" },
-    productDetail: { type: String, required: true },
-  },
-  {
-    timestamps: true,
-  }
-);
+const ProductSchema = new Schema({
+  thumbnail: { type: String, required: false },
+  title: { type: String, required: true },
+  subtitle: { type: String, required: false, default: "" },
+  productDetail: { type: String, required: true },
+  createdAt: { type: Number, default: Date.now },
+});
 
-const product = mongoose.model<TProduct>("Product", ProductSchema);
+const product = mongoose.model("Product", ProductSchema);
 
 export default product;
