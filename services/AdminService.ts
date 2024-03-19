@@ -18,7 +18,17 @@ export default class AdminService {
     return await this.adminRepository.createProductPostId();
   }
 
-  async createProductPost(id: string, title: string, content: string) {
-    return await this.adminRepository.createProductPost(id, title, content);
+  async createProductPost(
+    id: string,
+    title: string,
+    thumbnail: string,
+    content: string
+  ) {
+    return await this.adminRepository.createProductPost(
+      id,
+      title,
+      thumbnail,
+      content
+    );
   }
 }
