@@ -10,4 +10,15 @@ export default class PostsController {
 
     res.status(200).send(productList);
   };
+
+  getProductDetail = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    const id: string = req.query.id as string;
+    const productList = await this.productService.getProductDetail(id);
+
+    res.status(200).send(productList);
+  };
 }

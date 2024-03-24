@@ -16,4 +16,8 @@ export default class ProductService {
         createdAt: product.createdAt,
       }));
   }
+
+  async getProductDetail(id: string) {
+    return await this.productRepository.getProductDetail(id);
+  }
 }
