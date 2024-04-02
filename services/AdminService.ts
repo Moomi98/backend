@@ -1,5 +1,6 @@
 import AdminRepository from "../repositories/AdminRepository";
 import { TUser } from "../models/User";
+import { TOption } from "../types/TProduct";
 
 export default class AdminService {
   adminRepository = new AdminRepository();
@@ -22,12 +23,14 @@ export default class AdminService {
     id: string,
     title: string,
     thumbnail: string,
+    option: TOption[],
     content: string
   ) {
     return await this.adminRepository.createProductPost(
       id,
       title,
       thumbnail,
+      option,
       content
     );
   }

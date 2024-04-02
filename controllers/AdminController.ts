@@ -37,11 +37,12 @@ export default class AdminController {
     next: NextFunction
   ) => {
     try {
-      const { id, title, content, thumbnail } = req.body;
-      const result = await this.adminService.createProductPost(
+      const { id, title, content, thumbnail, options } = req.body;
+      await this.adminService.createProductPost(
         id,
         title,
         thumbnail,
+        options,
         content
       );
 
